@@ -16,6 +16,9 @@ public:
     TMatrix  operator+ (const TMatrix &mt);        // сложение
     TMatrix  operator- (const TMatrix &mt);        // вычитание
 
+    void input();
+    void print();
+
     // ввод / вывод
     friend std::istream& operator>>(std::istream &in, TMatrix &mt)
     {
@@ -82,6 +85,26 @@ TMatrix<ValType> TMatrix<ValType>::operator-(const TMatrix<ValType> &mt)
 {
     return TVector<TVector<ValType>>::operator-(mt);
 } /*-------------------------------------------------------------------------*/
+
+template<class ValType>
+inline void TMatrix<ValType>::input()
+{
+    for (int i = 0; i < this->
+        Size; i++)
+    {
+        std::cout << "[" << i << "] " << "\n";
+        this->pVector[i].input();
+    }
+}
+
+template<class ValType>
+inline void TMatrix<ValType>::print()
+{
+    for (int i = 0; i < this->Size; i++)
+    {
+        std::cout << this->pVector[i] << std::endl;
+    }
+}
 
 // TVector О3 Л2 П4 С6
 // TMatrix О2 Л2 П3 С3

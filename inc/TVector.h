@@ -34,6 +34,9 @@ public:
     TVector  operator-(const TVector<ValType> &v);     // вычитание
     ValType  operator*(const TVector<ValType> &v);     // скалярное произведение
 
+    void input();
+    void print();
+
     // ввод-вывод
     friend std::istream& operator>>(std::istream &in, TVector &v)
     {
@@ -225,6 +228,25 @@ ValType TVector<ValType>::operator*(const TVector<ValType> &v)
         res = res + pVector[i] * v.pVector[i];
     }
     return res;
+}
+
+template<class ValType>
+inline void TVector<ValType>::input()
+{
+    for (int i = 0; i < this->Size; i++)
+    {
+        std::cout << "a[" << i << "] = ";
+        std::cin >> this->pVector[i];
+    }
+}
+
+template<class ValType>
+inline void TVector<ValType>::print()
+{
+    for (int i = 0; i < this.Size(); i++)
+    {
+        std::cout << this->pVector[i] << " ";
+    }
 }
 
 
